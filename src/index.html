@@ -1,98 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Park Name]</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script type="module" src="js/main.js"></script>
+    <meta name="description" content="National Park Service park page clone for WDD 231" />
+    <meta name="author" content="Austin Sego" />
+    <title>Yellowstone National Park</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
+
   <body>
     <p class="disclaimer">
-      This is not a real NPS website. It is an educational exercise. If you
-      landed here by accident, to find the real website visit
-      <a href="parkUrl">[park name]</a>
+      Not an official site. Visit the official site for
+      <a href="https://www.nps.gov/yell/index.htm">Yellowstone National Park</a>
     </p>
+
     <div class="skip-links" aria-label="short-cut links" role="navigation">
-      <ul>
-        <li>
-          <a
-            href="#global-nav-toggle"
-            aria-label="Skip to global NPS navigation"
-            >Skip to global NPS navigation</a
-          >
-        </li>
-        <li>
-          <a href="#local-nav" aria-label="Skip to this park navigation"
-            >Skip to this park navigation</a
-          >
-        </li>
-        <li>
-          <a href="#main" aria-label="Skip to the main content"
-            >Skip to the main content</a
-          >
-        </li>
-        <li>
-          <a
-            href="#park-footer"
-            aria-label="Skip to this park information section"
-            >Skip to this park information section</a
-          >
-        </li>
-      </ul>
+      <a class="skip-link" href="#main">Skip to main content</a>
+      <a class="skip-link" href="#park-footer">Skip to footer</a>
     </div>
+
     <header>
       <section class="global-header">
-        <a href="index.html" class="site-title"
-          ><span class="logo" role="presentation"></span>
-          <span>National Park Service</span></a
-        >
-        <div class="global-header__right">
-          <a class="search-icon" href="#park-footer">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#search"></use>
-            </svg>
-            <span class="visually-hidden">Search</span>
+        <div class="global-header__inner">
+          <a class="global-header__brand" href="https://www.nps.gov/" aria-label="National Park Service Home">
+            <span class="global-header__brand-text">National Park Service</span>
           </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
-          </button>
+
+          <div class="global-header__actions">
+            <button class="icon-button" type="button" aria-label="Search">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="/images/sprite.symbol.svg#search"></use>
+              </svg>
+              <span class="icon-button__text">Search</span>
+            </button>
+
+            <button class="icon-button" type="button" aria-label="Menu">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="/images/sprite.symbol.svg#menu"></use>
+              </svg>
+              <span class="icon-button__text">Menu</span>
+            </button>
+          </div>
         </div>
-        <nav class="global-nav">
-          <h2 class="global-nav__section-heading">Explore this Park</h2>
-          <ul class="global-nav__list">
-            <li>
-              <div class="global-nav__split-button">
-                <a href="#">Plan Your Visit</a>
-                <button class="global-nav__split-button__toggle">
-                  <span class="visually-hidden"
-                    >Toggle submenu for Plan Your Visit</span
-                  >
-                  <svg class="icon" role="presentation" focusable="false">
-                    <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
-                  </svg>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </nav>
       </section>
-      <section id="park-header">
-        <a href="#">
-          <span>Info</span>
-          <svg class="icon" role="presentation" focusable="false">
-            <use xlink:href="/images/sprite.symbol.svg#info"></use>
-          </svg>
-        </a>
-        <svg class="icon" role="presentation" focusable="false">
-          <use xlink:href="/images/sprite.symbol.svg#alert"></use>
-        </svg>
+
+      <section id="park-header" class="park-header">
+        <div class="hero-banner">
+          <img
+            class="hero-banner__image"
+            src="https://www.nps.gov/common/uploads/structured_data/3C7D5920-1DD8-B71B-0B83F012ED802CEA.jpg"
+            alt="Yellowstone National Park"
+          />
+
+          <div class="hero-banner__content">
+            <div class="hero-banner__info">
+              <a href="/" class="hero-banner__title">Yellowstone</a>
+              <p class="hero-banner__subtitle">
+                <span>National Park</span>
+                <span>WY, MT, ID</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </header>
-    <main id="main"></main>
-    <footer id="park-footer"></footer>
+
+    <main id="main">
+      <!-- content will go here in later parts -->
+    </main>
+
+    <footer id="park-footer">
+      <!-- footer content will go here in later parts -->
+    </footer>
+
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
