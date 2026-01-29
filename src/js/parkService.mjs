@@ -5,7 +5,7 @@ const parkInfoLinks = [
   {
     name: "Current Conditions &#x203A;",
     link: "conditions.html",
-    image: "", // will be filled in from API
+    image: "",
     description: "See what conditions to expect in the park before leaving on your trip!"
   },
   {
@@ -31,26 +31,21 @@ async function getJson(url) {
   };
 
   const response = await fetch(baseUrl + url, options);
-
-  if (!response.ok) {
-    throw new Error("response not ok");
-  }
-
+  if (!response.ok) throw new Error("response not ok");
   return await response.json();
 }
 
 export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=yell");
+  const parkData = await getJson("parks?parkCode=glac"); // change park here
   return parkData.data[0];
 }
 
 export function getInfoLinks(images) {
-  const withUpdatedImages = parkInfoLinks.map((item, index) => {
-    return {
-      ...item,
-      image: images[index + 2]?.url || item.image
-    };
-  });
+  // pick 3 images safely (some parks have less images)
+  const chosen = (images || []).filter(img => img?.url).slice(1, 4);
 
-  return withUpdatedImages;
+  return parkInfoLinks.map((item, index) => ({
+    ...item,
+    image: chosen[index]?.url || ""
+  }));
 }
