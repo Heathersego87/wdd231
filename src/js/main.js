@@ -12,15 +12,39 @@ function setParkIntro(data) {
 
 function setParkInfoLinks(data) {
   const infoEl = document.querySelector(".info");
-  // we have multiple links to build...so we map to transform the array of objects into an array of HTML strings.
   const html = data.map(mediaCardTemplate);
-  // join the array of strings into one string and insert it into the section
   infoEl.insertAdjacentHTML("afterbegin", html.join(""));
 }
 
+function enableNavigation() {
+  const menuButton = document.querySelector("#global-nav-toggle");
+  const globalNav = document.querySelector(".global-nav");
+
+  if (!menuButton || !globalNav) return;
+
+  menuButton.addEventListener("click", (ev) => {
+    let target = ev.target;
+
+    // if we clicked the svg/text, climb back to the button
+    if (target.tagName !== "BUTTON") {
+      target = target.closest("button");
+    }
+
+    // open/close the menu
+    globalNav.classList.toggle("show");
+
+    const isOpen = globalNav.classList.contains("show");
+    target.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    target.setAttribute("aria-label", isOpen ? "Close Menu" : "Open Menu");
+  });
+}
+
 async function init() {
+  enableNavigation();
+
   const parkData = await getParkData();
   const links = getInfoLinks(parkData.images);
+
   setHeaderFooter(parkData);
   setParkIntro(parkData);
   setParkInfoLinks(links);
