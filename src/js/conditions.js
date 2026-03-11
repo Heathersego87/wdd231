@@ -21,14 +21,12 @@ function setAlerts(alerts) {
 
 function setVisitorCenters(centers) {
   const centersContainer = document.querySelector(".visitor ul");
-  centersContainer.innerHTML = "";
   const html = centers.map(visitorCenterTemplate);
   centersContainer.insertAdjacentHTML("afterbegin", html.join(""));
 }
 
 function setActivities(activities) {
   const activitiesContainer = document.querySelector(".activities ul");
-  activitiesContainer.innerHTML = "";
   const html = activityListTemplate(activities);
   activitiesContainer.insertAdjacentHTML("afterbegin", html);
 }
